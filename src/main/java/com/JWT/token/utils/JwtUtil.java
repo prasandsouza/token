@@ -16,13 +16,15 @@ import java.util.Map;
 public class JwtUtil {
 
     // 32 characters secret key
-    private final String SECRET_KEY = "mysecretkeymysecretkeymysecretk"; // 32 characters
+    private final String SECRET_KEY = "mysecretkeymysecretkeymysecretkx"; // 32 characters
     private final long EXPIRATION_TIME = 1000 * 60 * 10; // 10 Minute
 
 
     private SecretKey getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+        //return Jwts.SIG.HS256.key().build();
     }
+
 
     // generate token
     public String generateToken(String uuid, String username, String email){
